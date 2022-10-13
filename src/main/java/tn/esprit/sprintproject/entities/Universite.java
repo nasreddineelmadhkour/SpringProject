@@ -1,5 +1,8 @@
 package tn.esprit.sprintproject.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -7,9 +10,9 @@ import java.util.Set;
 public class Universite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUniv;
-    private String nomUniv;
+    @Getter @Setter private int idUniv;
+    @Getter @Setter private String nomUniv;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Departement> departements;
+    @Getter @Setter private Set<Departement> departements;
 }
