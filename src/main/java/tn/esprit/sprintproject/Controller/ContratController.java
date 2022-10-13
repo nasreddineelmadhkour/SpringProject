@@ -29,9 +29,9 @@ public class ContratController {
         return contratService.Update(ID,contrat);
     }
 
-    @DeleteMapping("/delete/{ID}")
+    /*@DeleteMapping("/delete/{ID}")
     public String delete(@PathVariable int ID)
     {
         return contratService.Delete(ID);
-    }
+    }*/
 }
