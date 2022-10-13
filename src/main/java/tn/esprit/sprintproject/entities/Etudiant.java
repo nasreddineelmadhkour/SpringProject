@@ -1,6 +1,7 @@
 package tn.esprit.sprintproject.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Etudiant {
@@ -11,5 +12,14 @@ public class Etudiant {
     private String nomE;
     @Enumerated(EnumType.STRING)
     private Option option;
+
+    @ManyToOne
+    private Departement departement;
+
+    @ManyToMany
+    private Set<Equipe> equipes;
+
+    @OneToMany
+    private Set<Contrat> contrats;
 
 }

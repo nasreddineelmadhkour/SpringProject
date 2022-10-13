@@ -1,9 +1,7 @@
 package tn.esprit.sprintproject.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Universite {
@@ -11,4 +9,7 @@ public class Universite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUniv;
     private String nomUniv;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Departement> departements;
 }
