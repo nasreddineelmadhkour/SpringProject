@@ -19,7 +19,7 @@ public class Etudiant {
     @ManyToMany
     private Set<Equipe> equipes;
 
-    @OneToMany
+    @OneToMany(mappedBy = "etudiant")
     private Set<Contrat> contrats;
 
 }
