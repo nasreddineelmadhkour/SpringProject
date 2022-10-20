@@ -36,6 +36,8 @@ public class DetailEquipeService implements Iservice<DetailEquipe> {
 
     @Override
     public String Delete(int ID) {
+
+        detailEquipeRepository.deleteById(ID);
         return "Supprimer DetailEquipe avec succes";
     }
 }

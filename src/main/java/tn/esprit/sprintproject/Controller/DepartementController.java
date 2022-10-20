@@ -2,7 +2,7 @@ package tn.esprit.sprintproject.Controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.sprintproject.Service.DepartementService;
+import tn.esprit.sprintproject.Service.Iservice;
 import tn.esprit.sprintproject.entities.Departement;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/departement")
 @AllArgsConstructor
 public class DepartementController {
-    private final DepartementService departementService;
+    private final Iservice<Departement> departementService;
 
     @PostMapping("post/")
     public Departement Create(@RequestBody Departement departement)

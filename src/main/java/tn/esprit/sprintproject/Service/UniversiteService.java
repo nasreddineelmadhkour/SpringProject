@@ -32,10 +32,14 @@ public class UniversiteService implements Iservice<Universite> {
                     return universiteRepository.save(T2);
                 }
         ).orElseThrow(() -> new RuntimeException("Universite non trouvé !"));
+
     }
 
     @Override
     public String Delete(int ID) {
+
+        universiteRepository.deleteById(ID);
+
         return "Supprimer Universite avec succes";
     }
 }

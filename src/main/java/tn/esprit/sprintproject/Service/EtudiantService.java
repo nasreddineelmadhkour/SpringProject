@@ -38,6 +38,6 @@ public class EtudiantService implements Iservice<Etudiant> {
 
     @Override
     public String Delete(int ID) {
-        return "Supprimer Etudiant avec succes";
+        etudiantRepository.deleteById(ID);return "Supprimer Etudiant avec succes";
     }
 }

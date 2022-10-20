@@ -2,7 +2,7 @@ package tn.esprit.sprintproject.Controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.sprintproject.Service.EtudiantService;
+import tn.esprit.sprintproject.Service.Iservice;
 import tn.esprit.sprintproject.entities.Etudiant;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class EtudiantController {
 
-    private final EtudiantService etudiantService;
+    private final Iservice<Etudiant> etudiantService;
 
     @PostMapping("post/")
     public Etudiant Create(@RequestBody Etudiant etudiant)

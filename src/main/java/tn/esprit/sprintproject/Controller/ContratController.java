@@ -2,7 +2,7 @@ package tn.esprit.sprintproject.Controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.sprintproject.Service.ContratService;
+import tn.esprit.sprintproject.Service.Iservice;
 import tn.esprit.sprintproject.entities.Contrat;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/contrat")
 @AllArgsConstructor
 public class ContratController {
-    private final ContratService contratService;
+    private final Iservice<Contrat> contratService;
     @PostMapping("post/")
     public Contrat Create(@RequestBody Contrat contrat)
     {

@@ -2,7 +2,7 @@ package tn.esprit.sprintproject.Controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.sprintproject.Service.DetailEquipeService;
+import tn.esprit.sprintproject.Service.Iservice;
 import tn.esprit.sprintproject.entities.DetailEquipe;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DetailEquipeController {
 
-    private final DetailEquipeService detailEquipeService;
+    private final Iservice<DetailEquipe> detailEquipeService;
 
     @PostMapping("post/")
     public DetailEquipe Create(@RequestBody DetailEquipe detailequipe)

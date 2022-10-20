@@ -39,6 +39,8 @@ public class EquipeService implements Iservice<Equipe>{
 
     @Override
     public String Delete(int ID) {
+
+        equipeRepository.deleteById(ID);
         return "Supprimer Equipe avec succes";
     }
 }
