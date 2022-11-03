@@ -11,6 +11,11 @@ import java.util.List;
 @AllArgsConstructor
 public class EtudiantService implements Iservice<Etudiant> {
     private final EtudiantRepository etudiantRepository;
+    private final DepartementService departementService;
+
+    private final  ContratService contratService ;
+    private final EquipeService equipeService;
+
     @Override
     public Etudiant Create(Etudiant T) {
         return etudiantRepository.save(T);
@@ -39,5 +44,37 @@ public class EtudiantService implements Iservice<Etudiant> {
     @Override
     public String Delete(int ID) {
         etudiantRepository.deleteById(ID);return "Supprimer Etudiant avec succes";
+    }
+
+    @Override
+    public Etudiant getOne(Integer ID) {
+        return etudiantRepository.findById(ID).get();
+    }
+
+    public void assignEtudiantToDepartement (Integer etudiantId, Integer departementId) {
+        etudiantRepository.findById(etudiantId)
+                .map(etudiant -> {
+                    etudiant.setDepartement(departementService.getOne(departementId));
+                    return etudiantRepository.save(etudiant);
+                });
+
+    }
+
+    public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe)
+    {
+
+        etudiantRepository.save(e);
+        return  etudiantRepository.findById(e.getIdEtudiant())
+                .map(etudiant -> {
+
+
+                    //Set<Equipe> equipes =etudiant.getEquipes();
+                    //equipes.add(equipeService.getOne(idEquipe));
+                    //etudiant.setEquipes(equipes);
+
+                    return etudiantRepository.save(etudiant);
+
+                }).get();
+
     }
 }

@@ -19,7 +19,7 @@ public class Etudiant {
     @ManyToOne
     @Getter @Setter private Departement departement;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @Getter @Setter private Set<Equipe> equipes;
 
     @OneToMany(mappedBy = "etudiant")

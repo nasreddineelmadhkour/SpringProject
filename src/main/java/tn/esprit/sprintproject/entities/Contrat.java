@@ -16,6 +16,8 @@ public class Contrat implements Serializable {
     @Getter @Setter private boolean archive;
     @Getter @Setter private int montantContrat;
     @Enumerated(EnumType.STRING) @Getter @Setter private Specialite specialite;
-    @ManyToOne @Getter @Setter private Etudiant etudiant;
+
+    @ManyToOne (cascade = CascadeType.ALL)
+    @Getter @Setter private Etudiant etudiant;
 
 }

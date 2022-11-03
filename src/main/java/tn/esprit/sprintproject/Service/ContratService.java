@@ -42,4 +42,9 @@ public class ContratService implements Iservice<Contrat>{
         contratRepository.deleteById(ID);
         return "Contrat supprimer avec succes";
     }
+
+    @Override
+    public Contrat getOne(Integer ID) {
+        return contratRepository.findById(ID).get();
+    }
 }

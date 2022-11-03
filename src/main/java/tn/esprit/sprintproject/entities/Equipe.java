@@ -15,5 +15,6 @@ public class Equipe {
 
     @OneToOne @Getter @Setter private DetailEquipe detailEquipe;
 
-    @ManyToMany(mappedBy = "equipes") @Getter @Setter private Set<Etudiant> etudiants;
+    @ManyToMany(mappedBy = "equipes",cascade = CascadeType.ALL)
+    @Getter @Setter private Set<Etudiant> etudiants;
 }

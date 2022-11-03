@@ -38,4 +38,10 @@ public class DepartementService implements Iservice<Departement>{
         departementRepository.deleteById(ID);
         return "Supprimer Departement avec succes";
     }
+
+    @Override
+    public Departement getOne(Integer ID) {
+        return departementRepository.findById(ID).get();
+    }
+
 }

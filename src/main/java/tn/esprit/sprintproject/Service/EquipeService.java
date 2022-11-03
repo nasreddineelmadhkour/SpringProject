@@ -43,4 +43,9 @@ public class EquipeService implements Iservice<Equipe>{
         equipeRepository.deleteById(ID);
         return "Supprimer Equipe avec succes";
     }
+
+    @Override
+    public Equipe getOne(Integer ID) {
+        return equipeRepository.findById(ID).get();
+    }
 }

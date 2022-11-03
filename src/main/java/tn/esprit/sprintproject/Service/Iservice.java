@@ -9,4 +9,5 @@ public interface Iservice <object>{
     object Update(int ID,object T);
     String  Delete(int ID );
 
+    object getOne(Integer ID);
 }

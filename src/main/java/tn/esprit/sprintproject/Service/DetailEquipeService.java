@@ -40,4 +40,9 @@ public class DetailEquipeService implements Iservice<DetailEquipe> {
         detailEquipeRepository.deleteById(ID);
         return "Supprimer DetailEquipe avec succes";
     }
+
+    @Override
+    public DetailEquipe getOne(Integer ID) {
+        return detailEquipeRepository.findById(ID).get();
+    }
 }
