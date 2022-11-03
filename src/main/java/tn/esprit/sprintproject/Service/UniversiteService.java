@@ -2,17 +2,18 @@ package tn.esprit.sprintproject.Service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.sprintproject.Repository.DepartementRepository;
 import tn.esprit.sprintproject.Repository.UniversiteRepository;
 import tn.esprit.sprintproject.entities.Departement;
 import tn.esprit.sprintproject.entities.Universite;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 @AllArgsConstructor
 public class UniversiteService implements Iservice<Universite> {
     private final UniversiteRepository universiteRepository;
+    DepartementRepository departementRepository;
 
     private final  DepartementService departementService;
 
@@ -51,7 +52,7 @@ public class UniversiteService implements Iservice<Universite> {
         return universiteRepository.findById(ID).get();
     }
 
-    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement){
+   /* public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement){
         universiteRepository.findById(idUniversite)
                 .map(universite -> {
                      Set<Departement> departements=universite.getDepartements();
@@ -60,5 +61,13 @@ public class UniversiteService implements Iservice<Universite> {
 
                     return universiteRepository.save(universite);
                 });
+    }*/
+
+
+    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement){
+        Universite universite = universiteRepository.findById(idUniversite).orElse(null);
+        Departement departement = departementRepository.findById(idDepartement).orElse(null);
+        universite.getDepartements().add(departement);
+        universiteRepository.save(universite);
     }
 }

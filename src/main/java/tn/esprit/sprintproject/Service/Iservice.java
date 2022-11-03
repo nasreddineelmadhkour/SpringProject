@@ -10,4 +10,6 @@ public interface Iservice <object>{
     String  Delete(int ID );
 
     object getOne(Integer ID);
+
+
 }

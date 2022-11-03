@@ -3,7 +3,9 @@ package tn.esprit.sprintproject.Service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.sprintproject.Repository.ContratRepository;
+import tn.esprit.sprintproject.Repository.EtudiantRepository;
 import tn.esprit.sprintproject.entities.Contrat;
+import tn.esprit.sprintproject.entities.Etudiant;
 
 import java.util.List;
 
@@ -11,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ContratService implements Iservice<Contrat>{
     private final ContratRepository contratRepository;
+    EtudiantRepository etudiantRepository;
 
     @Override
     public Contrat Create(Contrat contrat) {
@@ -46,5 +49,12 @@ public class ContratService implements Iservice<Contrat>{
     @Override
     public Contrat getOne(Integer ID) {
         return contratRepository.findById(ID).get();
+    }
+
+    Contrat affectContratToEtudiant (Contrat ce, String nomE ,String prenomE){
+        Contrat contrat = contratRepository.findById((ce.getIdContrat())).orElse(null);
+        Etudiant etudiant = etudiantRepository.findByNomEAndPrenomE(nomE,prenomE);
+         contrat.setEtudiant(etudiant);
+        return contratRepository.save(contrat);
     }
 }

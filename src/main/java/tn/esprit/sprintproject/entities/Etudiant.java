@@ -4,25 +4,29 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter @Setter
+@Table(name = "table_etudiant")
 public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter private int idEtudiant;
-    @Getter @Setter private String prenomE;
-    @Getter @Setter private String nomE;
+    private int idEtudiant;
+    private String prenomE;
+    @Column(name = "etudiant_nom")
+     private String nomE;
     @Enumerated(EnumType.STRING)
-    @Getter @Setter private Option option;
+  private Option option;
 
     @ManyToOne
-    @Getter @Setter private Departement departement;
+     private Departement departement;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @Getter @Setter private Set<Equipe> equipes;
+     private Set<Equipe> equipes = new HashSet<>();
 
     @OneToMany(mappedBy = "etudiant")
-    @Getter @Setter private Set<Contrat> contrats;
+     private Set<Contrat> contrats;
 
 }

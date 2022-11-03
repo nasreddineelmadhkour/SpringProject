@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,5 +15,5 @@ public class Universite {
     @Getter @Setter private String nomUniv;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @Getter @Setter private Set<Departement> departements;
+    @Getter @Setter private Set<Departement> departements = new HashSet<>();
 }
