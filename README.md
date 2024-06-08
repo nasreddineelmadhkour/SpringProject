@@ -28,8 +28,8 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 1. Clonez le dépôt :
 
     ```bash
-    git clone https://github.com/votre-utilisateur/votre-repo.git
-    cd votre-repo
+    git https://github.com/nasreddineelmadhkour/SpringProject.git
+    cd SpringProject
     ```
 
 2. Compilez le projet avec Maven :
